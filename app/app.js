@@ -1,6 +1,6 @@
 var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
 
-myNinjaApp.config(['$routeProvider', function($routeProvider){
+myNinjaApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/home', {
             templateUrl: 'views/home.html'
@@ -9,12 +9,12 @@ myNinjaApp.config(['$routeProvider', function($routeProvider){
             templateUrl: 'views/directory.html',
             controller: 'NinjaController'
         })
-        .otherwise({
+        .otherwise( {
             redirectTo: '/home'
         });
 }]);
 
-myNinjaApp.controller('NinjaController', ['$scope',function($scope) {
+myNinjaApp.controller('NinjaController', ['$scope', '$http',function($scope, $http) {
 
     $scope.removeNinja = function(ninja) {
         var removedNinja = $scope.minjas.indexOf(ninja);
@@ -33,38 +33,57 @@ myNinjaApp.controller('NinjaController', ['$scope',function($scope) {
         $scope.newninja.rate = "";
     };
 
+    // $http.get('../data/minjas.json').success(function(data) {
+    //     $scope.minjas = data;
+    //     console.log(data);
+    // });
+
+    $http.get('../data/minjas.json').then(function(res) {
+        // console.log('This is data', res.data);
+        // for (let o of res.data) {
+        //     console.log(o.name);
+        //     console.log(o.belt);
+        //     console.log(o.rate);
+        // }
+
+        $scope.minjas = res.data;
+
+    })
+
     $scope.message = "poruka neka";
 
-    $scope.minjas = [{
-        name: "Milan",
-        belt: "blue",
-        rate: 50,
-        available: true,
-        thumb: "content/img/milan.png"
-    },
-    {
-        name: "Marija",
-        belt: "red",
-        rate: 100,
-        available: true,
-        thumb: "content/img/marija.png"
-    },
-    {
-        name: "Sima",
-        belt: "black",
-        rate: 10,
-        available: true,
-        thumb: "content/img/sima.png"
-    },
-    {
-        name: "Milica",
-        belt: "indianred",
-        rate: 150,
-        available: false,
-        thumb: "content/img/milica.png"
-    }
-    ];
+    // $scope.minjas = [{
+    //     name: "Milan",
+    //     belt: "blue",
+    //     rate: 50,
+    //     available: true,
+    //     thumb: "content/img/milan.png"
+    // },
+    // {
+    //     name: "Marija",
+    //     belt: "red",
+    //     rate: 100,
+    //     available: true,
+    //     thumb: "content/img/marija.png"
+    // },
+    // {
+    //     name: "Sima",
+    //     belt: "black",
+    //     rate: 10,
+    //     available: true,
+    //     thumb: "content/img/sima.png"
+    // },
+    // {
+    //     name: "Milica",
+    //     belt: "indianred",
+    //     rate: 150,
+    //     available: false,
+    //     thumb: "content/img/milica.png"
+    // }
+    // ];
 
+
+// console.log(angular.toJson($scope.minjas));
 
 }]);
 

@@ -1,0 +1,25 @@
+[{
+	"name": "Milan",
+	"belt": "blue",
+	"rate": 50,
+	"available": true,
+	"thumb": "content/img/milan.png"
+}, {
+	"name": "Marija",
+	"belt": "red",
+	"rate": 100,
+	"available": true,
+	"thumb": "content/img/marija.png"
+}, {
+	"name": "Sima",
+	"belt": "black",
+	"rate": 10,
+	"available": true,
+	"thumb": "content/img/sima.png"
+}, {
+	"name": "Milica",
+	"belt": "indianred",
+	"rate": 150,
+	"available": false,
+	"thumb": "content/img/milica.png"
+}]
