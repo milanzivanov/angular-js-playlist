@@ -1,4 +1,4 @@
-var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
+var myNinjaApp = angular.module('myNinjaApp', ['ngRoute', 'ngAnimate']);
 
 myNinjaApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -59,6 +59,12 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http',function($scope, $ht
     //     console.log(data);
     // });
 
+
+    // tutorial 21
+    $scope.removeAll = function() {
+        $scope.minjas = [];
+    };
+
     $http.get('../data/minjas.json').then(function(res) {
         // console.log('This is data', res.data);
         // for (let o of res.data) {
@@ -69,7 +75,7 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http',function($scope, $ht
 
         $scope.minjas = res.data;
 
-    })
+    });
 
     $scope.message = "poruka neka";
 

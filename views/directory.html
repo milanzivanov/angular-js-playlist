@@ -3,7 +3,7 @@
     <button ng-click="order='name'">Order by Name</button>
     <button ng-click="order='belt'">Order by Belt</button>
     <input type="text" name="" value="" ng-model="search" placeholder="search for a minjas">
-    <ul>
+    <ul id="ninja-list">
         <li ng-repeat="ninja in minjas | orderBy: order | filter: search" ng-show="ninja.available">
             <img ng-src="{{ninja.thumb}}" alt="image-thumb" style="margin: -12px 10px 0 0; float: left; width: 50px; " ng-show="ninja.thumb"/>
             <h3>
@@ -25,4 +25,7 @@
         <input type="text" placeholder="rate" ng-model="newninja.rate">
         <input type="submit" name="" value="Add new ninja">
     </form>
+
+    <a href="" ng-click="removeAll()">remove all minjas</a>
+
 </div>
