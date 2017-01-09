@@ -41,7 +41,8 @@ h1,h2,h3{
 }
 
 #menu-bar a{
-  color: #fff
+  color: #fff;
+  text-decoration: none;
 }
 
 main{
