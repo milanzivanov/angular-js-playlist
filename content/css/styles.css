@@ -16,8 +16,16 @@ h1,h2,h3{
   text-transform: uppercase;
 }
 
-#menu-bar{
+header {
+  width: 100%;
+  clear: both;
+  display: block;
   background: crimson;
+}
+
+#menu-bar{
+  max-width: 1200px;
+  margin: auto;
   color: #fff;
   padding: 10px;
 }
